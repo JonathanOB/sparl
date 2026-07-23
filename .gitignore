@@ -13,6 +13,17 @@
 # testing
 /coverage
 
+# production env
+.env.local
+.env.sentry-build-plugin
+TODO.md
+AGENTS.md
+CLAUDE.md
+sentry.server.config.ts
+sentry.edge.config.ts
+.mcp.json
+
+
 # next.js
 /.next/
 /out/
@@ -32,6 +43,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -39,3 +51,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Sentry Config File
+.env.sentry-build-plugin

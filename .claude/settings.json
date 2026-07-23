@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/on-edit.mjs",
+            "timeout": 90,
+            "statusMessage": "Sparl: lint + no-any check"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-commit.mjs",
+            "if": "Bash(git commit*)",
+            "timeout": 300,
+            "statusMessage": "Sparl: secret scan + typecheck"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "agent",
+            "if": "Bash(gh pr create*)",
+            "model": "claude-sonnet-4-6",
+            "timeout": 240,
+            "statusMessage": "Sparl: security review",
+            "prompt": "Security-review this branch before the PR is created. Run `git diff` against the base branch and check it against Sparl's D10 security architecture: (1) every new or changed user-facing table has a household-scoped RLS policy (Clerk-JWT); (2) no secrets, keys, service_role, or credentials committed; (3) Supabase Storage access uses short-lived signed URLs, not public buckets; (4) no PII in logs; (5) every webhook endpoint verifies its signature in code and Zod-validates the payload after; (6) no client-side privileged DB access. Report any blockers as file:line with the rule violated, and BLOCK if a blocker is found. $ARGUMENTS"
+          }
+        ]
+      }
+    ]
+  }
+}
