@@ -17,7 +17,7 @@ const OWNERSHIP_STATUSES = ["owner", "renter", "landlord", "other"] as const;
 export const createHouseholdSchema = z
   .object({
     name: z.string().min(1).max(120),
-    country_id: z.string().uuid().optional(),
+    country_id: z.uuid().optional(),
     address_line_1: z.string().max(200).optional(),
     city: z.string().max(120).optional(),
     county: z.string().max(120).optional(),

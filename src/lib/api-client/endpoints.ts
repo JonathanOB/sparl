@@ -44,6 +44,10 @@ export const providersApi = {
   products: (id: string) => apiClient.get<Tables<"provider_products">[]>(`/providers/${id}/products`),
 };
 
+export const categoriesApi = {
+  list: () => apiClient.get<Tables<"provider_categories">[]>("/categories"),
+};
+
 export const servicesApi = {
   list: (filter?: { household_id?: string }) =>
     apiClient.get<Tables<"user_services">[]>(`/services${qs(filter)}`),

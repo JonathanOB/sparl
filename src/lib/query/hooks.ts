@@ -1,7 +1,13 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { householdsApi, providersApi, servicesApi, usersApi } from "@/lib/api-client/endpoints";
+import {
+  categoriesApi,
+  householdsApi,
+  providersApi,
+  servicesApi,
+  usersApi,
+} from "@/lib/api-client/endpoints";
 import type { UpdateMeInput } from "@/lib/services/user-service";
 import type {
   CreateHouseholdInput,
@@ -23,7 +29,12 @@ export const queryKeys = {
   services: (householdId?: string) =>
     householdId ? (["services", householdId] as const) : (["services"] as const),
   service: (id: string) => ["services", id] as const,
+  categories: ["categories"] as const,
 };
+
+export function useCategories() {
+  return useQuery({ queryKey: queryKeys.categories, queryFn: categoriesApi.list });
+}
 
 export function useMe() {
   return useQuery({ queryKey: queryKeys.me, queryFn: usersApi.me });

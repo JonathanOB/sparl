@@ -10,8 +10,8 @@ import type { Tables } from "@/shared/types/database.types";
 
 export const providerFilterSchema = z
   .object({
-    country_id: z.string().uuid().optional(),
-    category_id: z.string().uuid().optional(),
+    country_id: z.uuid().optional(),
+    category_id: z.uuid().optional(),
   })
   .strict();
 
@@ -43,6 +43,17 @@ export async function getProvider(id: string): Promise<Tables<"providers">> {
   if (error) throw new Error(error.message);
   if (!data) throw new AppError(ErrorCode.NOT_FOUND, "Provider not found.");
   return data;
+}
+
+export async function listCategories(): Promise<Tables<"provider_categories">[]> {
+  const supabase = await createUserClient();
+  const { data, error } = await supabase
+    .from("provider_categories")
+    .select("*")
+    .is("deleted_at", null)
+    .order("name", { ascending: true });
+  if (error) throw new Error(error.message);
+  return data ?? [];
 }
 
 export async function listProviderProducts(

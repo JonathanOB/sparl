@@ -16,10 +16,10 @@ const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Expected date as YYYY-M
 
 export const createServiceSchema = z
   .object({
-    household_id: z.string().uuid().optional(), // defaults to the active household
-    provider_id: z.string().uuid().optional(),
-    category_id: z.string().uuid().optional(),
-    current_product_id: z.string().uuid().optional(),
+    household_id: z.uuid().optional(), // defaults to the active household
+    provider_id: z.uuid().optional(),
+    category_id: z.uuid().optional(),
+    current_product_id: z.uuid().optional(),
     monthly_cost: z.number().nonnegative().optional(),
     annual_cost: z.number().nonnegative().optional(),
     status: z.enum(STATUSES).optional(),
@@ -30,9 +30,9 @@ export const createServiceSchema = z
 
 export const updateServiceSchema = z
   .object({
-    provider_id: z.string().uuid().nullable().optional(),
-    category_id: z.string().uuid().nullable().optional(),
-    current_product_id: z.string().uuid().nullable().optional(),
+    provider_id: z.uuid().nullable().optional(),
+    category_id: z.uuid().nullable().optional(),
+    current_product_id: z.uuid().nullable().optional(),
     monthly_cost: z.number().nonnegative().nullable().optional(),
     annual_cost: z.number().nonnegative().nullable().optional(),
     status: z.enum(STATUSES).optional(),
@@ -40,7 +40,7 @@ export const updateServiceSchema = z
   })
   .strict();
 
-export const listServicesSchema = z.object({ household_id: z.string().uuid().optional() }).strict();
+export const listServicesSchema = z.object({ household_id: z.uuid().optional() }).strict();
 
 export type CreateServiceInput = z.infer<typeof createServiceSchema>;
 export type UpdateServiceInput = z.infer<typeof updateServiceSchema>;

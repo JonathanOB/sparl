@@ -36,7 +36,7 @@ export async function parseJson<T>(req: Request, schema: z.ZodType<T>): Promise<
 
 /** Validate a route param is a UUID. Throws AppError(VALIDATION_FAILED) otherwise. */
 export function requireUuidParam(value: string, name = "id"): string {
-  const result = z.string().uuid().safeParse(value);
+  const result = z.uuid().safeParse(value);
   if (!result.success) {
     throw new AppError(ErrorCode.VALIDATION_FAILED, `Invalid ${name}.`);
   }

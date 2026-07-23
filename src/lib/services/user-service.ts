@@ -16,7 +16,7 @@ export const updateMeSchema = z
     first_name: z.string().min(1).max(100).optional(),
     last_name: z.string().min(1).max(100).optional(),
     timezone: z.string().min(1).max(64).optional(),
-    country_id: z.string().uuid().optional(),
+    country_id: z.uuid().optional(),
   })
   .strict();
 
