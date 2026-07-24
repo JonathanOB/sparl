@@ -1,24 +1,15 @@
 /**
- * POST /api/webhooks/stripe — subscription lifecycle (§2.8, Phase 10).
- * Public route. Verifies the Stripe signature against the RAW body using
- * STRIPE_WEBHOOK_SECRET. Handlers are stubbed here; full subscription sync +
- * idempotency (dedupe on event.id) lands in Phase 10.
+ * POST /api/webhooks/stripe — subscription lifecycle (§2.8, D11 §7).
+ * Public route. Verifies the Stripe signature against the RAW body, then syncs
+ * public.subscriptions. Handlers are idempotent (upsert), so replays are safe.
  */
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
 import { serverEnv } from "@/lib/env";
 import { createRequestLogger } from "@/lib/log/logger";
+import { syncSubscription } from "@/lib/services/subscription-sync";
 
 export const dynamic = "force-dynamic";
-
-const HANDLED_EVENTS = new Set<Stripe.Event["type"]>([
-  "checkout.session.completed",
-  "customer.subscription.created",
-  "customer.subscription.updated",
-  "customer.subscription.deleted",
-  "invoice.paid",
-  "invoice.payment_failed",
-]);
 
 export async function POST(req: Request): Promise<Response> {
   const logger = createRequestLogger(req);
@@ -31,21 +22,44 @@ export async function POST(req: Request): Promise<Response> {
   }
 
   const rawBody = await req.text(); // raw body required for signature verification
+  const stripe = getStripe();
   let event: Stripe.Event;
   try {
-    event = getStripe().webhooks.constructEvent(rawBody, signature, secret);
+    event = stripe.webhooks.constructEvent(rawBody, signature, secret);
   } catch {
     logger.warn("webhook.stripe.invalid_signature");
     return new Response("Invalid signature", { status: 400 });
   }
 
-  // TODO(Phase 10): idempotency — skip if event.id already processed, then sync
-  // public.subscriptions from the event.
-  if (HANDLED_EVENTS.has(event.type)) {
+  try {
+    switch (event.type) {
+      case "customer.subscription.created":
+      case "customer.subscription.updated":
+      case "customer.subscription.deleted":
+        await syncSubscription(event.data.object);
+        break;
+      case "checkout.session.completed": {
+        const session = event.data.object;
+        if (typeof session.subscription === "string") {
+          await syncSubscription(await stripe.subscriptions.retrieve(session.subscription));
+        }
+        break;
+      }
+      case "invoice.payment_failed":
+      case "invoice.paid": {
+        const invoice = event.data.object as Stripe.Invoice & { subscription?: string | null };
+        if (typeof invoice.subscription === "string") {
+          await syncSubscription(await stripe.subscriptions.retrieve(invoice.subscription));
+        }
+        break;
+      }
+      default:
+        logger.debug("webhook.stripe.unhandled", { type: event.type, id: event.id });
+    }
     logger.info("webhook.stripe", { type: event.type, id: event.id });
-  } else {
-    logger.debug("webhook.stripe.unhandled", { type: event.type, id: event.id });
+    return Response.json({ received: true }, { status: 200 });
+  } catch (err) {
+    logger.error("webhook.stripe.failed", { type: event.type, id: event.id, err: String(err) });
+    return new Response("Processing error", { status: 500 });
   }
-
-  return Response.json({ received: true }, { status: 200 });
 }

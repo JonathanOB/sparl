@@ -1176,7 +1176,7 @@ export type Database = {
       recommendation_status: "new" | "viewed" | "accepted" | "rejected" | "completed";
       renewal_status: "pending" | "analysing" | "recommendation_ready" | "completed" | "ignored";
       subscription_plan: "free" | "premium" | "family";
-      subscription_status: "active" | "trialing" | "past_due" | "canceled" | "unpaid";
+      subscription_status: "active" | "trialing" | "past_due" | "canceled" | "unpaid" | "incomplete" | "incomplete_expired";
       user_service_status: "active" | "expired" | "cancelled" | "unknown";
     };
     CompositeTypes: Record<never, never>;

@@ -9,6 +9,7 @@ import {
   providersApi,
   recommendationsApi,
   servicesApi,
+  subscriptionApi,
   usersApi,
 } from "@/lib/api-client/endpoints";
 import type { UpdateMeInput } from "@/lib/services/user-service";
@@ -36,7 +37,39 @@ export const queryKeys = {
   documents: ["documents"] as const,
   recommendations: ["recommendations"] as const,
   notifications: ["notifications"] as const,
+  subscription: ["subscription"] as const,
 };
+
+export function useSubscription() {
+  return useQuery({ queryKey: queryKeys.subscription, queryFn: subscriptionApi.get });
+}
+
+/** Starts checkout and redirects to Stripe on success. */
+export function useCheckout() {
+  return useMutation({
+    mutationFn: (lookupKey: string) => subscriptionApi.checkout(lookupKey),
+    onSuccess: ({ url }) => {
+      window.location.href = url;
+    },
+  });
+}
+
+export function useBillingPortal() {
+  return useMutation({
+    mutationFn: () => subscriptionApi.portal(),
+    onSuccess: ({ url }) => {
+      window.location.href = url;
+    },
+  });
+}
+
+export function useCancelSubscription() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: () => subscriptionApi.cancel(),
+    onSuccess: () => qc.invalidateQueries({ queryKey: queryKeys.subscription }),
+  });
+}
 
 export function useNotifications() {
   return useQuery({

@@ -59,6 +59,14 @@ export const documentsApi = {
   },
 };
 
+export const subscriptionApi = {
+  get: () => apiClient.get<Tables<"subscriptions"> | null>("/subscription"),
+  checkout: (lookupKey: string) =>
+    apiClient.post<{ url: string }>("/subscription/create-checkout", { lookupKey }),
+  portal: () => apiClient.post<{ url: string }>("/subscription/portal"),
+  cancel: () => apiClient.post<{ canceled: boolean }>("/subscription/cancel"),
+};
+
 export const notificationsApi = {
   list: () => apiClient.get<Tables<"notifications">[]>("/notifications"),
   read: (id: string) => apiClient.post<Tables<"notifications">>(`/notifications/${id}/read`),
