@@ -1,0 +1,219 @@
+[
+  {
+    "name": "Netflix",
+    "category": "Streaming video",
+    "technology": "Video streaming",
+    "notes": "Largest subscription streaming service in Ireland with films, series and original content.",
+    "website": "https://www.netflix.com"
+  },
+  {
+    "name": "Amazon Prime",
+    "category": "Streaming, shopping, services",
+    "technology": "Video streaming, membership subscription",
+    "notes": "Includes Prime Video, Amazon delivery benefits and other services.",
+    "website": "https://www.amazon.ie/prime"
+  },
+  {
+    "name": "Disney+",
+    "category": "Streaming video",
+    "technology": "Video streaming",
+    "notes": "Family-focused streaming service including Disney, Pixar, Marvel, Star Wars and National Geographic content.",
+    "website": "https://www.disneyplus.com"
+  },
+  {
+    "name": "Apple TV+",
+    "category": "Streaming video",
+    "technology": "Video streaming",
+    "notes": "Apple's premium streaming service with original films and series.",
+    "website": "https://tv.apple.com"
+  },
+  {
+    "name": "NOW",
+    "category": "Streaming video",
+    "technology": "Video streaming",
+    "notes": "Sky's streaming service offering entertainment, cinema and sports memberships in Ireland.",
+    "website": "https://www.nowtv.com/ie"
+  },
+  {
+    "name": "Paramount+",
+    "category": "Streaming video",
+    "technology": "Video streaming",
+    "notes": "Streaming service from Paramount with films, series and sports content.",
+    "website": "https://www.paramountplus.com"
+  },
+  {
+    "name": "MUBI",
+    "category": "Streaming video",
+    "technology": "Video streaming",
+    "notes": "Cinema-focused streaming platform specialising in independent films.",
+    "website": "https://mubi.com"
+  },
+  {
+    "name": "Crunchyroll",
+    "category": "Streaming video",
+    "technology": "Anime streaming",
+    "notes": "Specialist anime streaming subscription.",
+    "website": "https://www.crunchyroll.com"
+  },
+  {
+    "name": "Spotify",
+    "category": "Music streaming",
+    "technology": "Music and podcast streaming",
+    "notes": "Largest music streaming subscription service.",
+    "website": "https://www.spotify.com"
+  },
+  {
+    "name": "Apple Music",
+    "category": "Music streaming",
+    "technology": "Music streaming",
+    "notes": "Apple's music subscription service.",
+    "website": "https://www.apple.com/apple-music"
+  },
+  {
+    "name": "YouTube Premium",
+    "category": "Video and music streaming",
+    "technology": "Ad-free video, YouTube Music",
+    "notes": "Removes YouTube ads and includes YouTube Music Premium.",
+    "website": "https://www.youtube.com/premium"
+  },
+  {
+    "name": "Audible",
+    "category": "Audiobooks",
+    "technology": "Digital audiobook subscription",
+    "notes": "Amazon-owned audiobook subscription service.",
+    "website": "https://www.audible.co.uk"
+  },
+  {
+    "name": "Kindle Unlimited",
+    "category": "Books",
+    "technology": "Digital books subscription",
+    "notes": "Amazon ebook subscription service.",
+    "website": "https://www.amazon.co.uk/kindle-dbs/hz/subscribe/ku"
+  },
+  {
+    "name": "iCloud+",
+    "category": "Cloud storage",
+    "technology": "Cloud storage",
+    "notes": "Apple storage subscription for photos, backups and files.",
+    "website": "https://www.icloud.com"
+  },
+  {
+    "name": "Google One",
+    "category": "Cloud storage",
+    "technology": "Cloud storage",
+    "notes": "Google storage subscription for Drive, Gmail and Photos.",
+    "website": "https://one.google.com"
+  },
+  {
+    "name": "Microsoft 365",
+    "category": "Software",
+    "technology": "Cloud productivity software",
+    "notes": "Subscription for Office apps, OneDrive and Microsoft services.",
+    "website": "https://www.microsoft.com/microsoft-365"
+  },
+  {
+    "name": "Adobe Creative Cloud",
+    "category": "Software",
+    "technology": "Creative software subscription",
+    "notes": "Professional design, photography and video software suite.",
+    "website": "https://www.adobe.com/creativecloud.html"
+  },
+  {
+    "name": "Canva Pro",
+    "category": "Software",
+    "technology": "Online design platform",
+    "notes": "Graphic design subscription used by individuals and businesses.",
+    "website": "https://www.canva.com"
+  },
+  {
+    "name": "Dropbox",
+    "category": "Cloud storage",
+    "technology": "Cloud file storage",
+    "notes": "Cloud storage and file sharing subscription.",
+    "website": "https://www.dropbox.com"
+  },
+  {
+    "name": "NordVPN",
+    "category": "Security",
+    "technology": "VPN service",
+    "notes": "Consumer VPN subscription for privacy and security.",
+    "website": "https://nordvpn.com"
+  },
+  {
+    "name": "ExpressVPN",
+    "category": "Security",
+    "technology": "VPN service",
+    "notes": "Premium VPN subscription service.",
+    "website": "https://www.expressvpn.com"
+  },
+  {
+    "name": "1Password",
+    "category": "Security",
+    "technology": "Password manager",
+    "notes": "Password storage and security subscription.",
+    "website": "https://1password.com"
+  },
+  {
+    "name": "Duolingo Super",
+    "category": "Education",
+    "technology": "Language learning app",
+    "notes": "Premium language learning subscription.",
+    "website": "https://www.duolingo.com"
+  },
+  {
+    "name": "Headspace",
+    "category": "Health and wellness",
+    "technology": "Meditation app",
+    "notes": "Mindfulness and meditation subscription.",
+    "website": "https://www.headspace.com"
+  },
+  {
+    "name": "Strava",
+    "category": "Fitness",
+    "technology": "Fitness tracking platform",
+    "notes": "Premium fitness tracking subscription.",
+    "website": "https://www.strava.com"
+  },
+  {
+    "name": "Peloton",
+    "category": "Fitness",
+    "technology": "Fitness streaming",
+    "notes": "Digital fitness classes subscription.",
+    "website": "https://www.onepeloton.com"
+  },
+  {
+    "name": "Xbox Game Pass",
+    "category": "Gaming",
+    "technology": "Game subscription",
+    "notes": "Microsoft gaming subscription providing access to games.",
+    "website": "https://www.xbox.com/xbox-game-pass"
+  },
+  {
+    "name": "PlayStation Plus",
+    "category": "Gaming",
+    "technology": "Game subscription",
+    "notes": "Sony gaming subscription for online play and games.",
+    "website": "https://www.playstation.com/ps-plus"
+  },
+  {
+    "name": "Nintendo Switch Online",
+    "category": "Gaming",
+    "technology": "Game subscription",
+    "notes": "Nintendo online gaming and classic games subscription.",
+    "website": "https://www.nintendo.com/switch/online"
+  },
+  {
+    "name": "Tinder Plus",
+    "category": "Dating",
+    "technology": "Dating subscription",
+    "notes": "Premium dating app subscription.",
+    "website": "https://tinder.com"
+  },
+  {
+    "name": "LinkedIn Premium",
+    "category": "Professional",
+    "technology": "Professional networking subscription",
+    "notes": "Premium LinkedIn features including job and networking tools.",
+    "website": "https://www.linkedin.com/premium"
+  }
+]

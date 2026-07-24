@@ -153,7 +153,9 @@ export function AddServiceDialog() {
 
           {create.isError ? (
             <Alert variant="destructive">
-              <AlertDescription>Couldn&apos;t add the service. Please try again.</AlertDescription>
+              <AlertDescription>
+                {create.error instanceof Error ? create.error.message : "Couldn't add the service."}
+              </AlertDescription>
             </Alert>
           ) : null}
 

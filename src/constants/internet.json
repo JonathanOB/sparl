@@ -1,0 +1,248 @@
+[
+  {
+    "name": "eir",
+    "technology": "Open eir fibre, FTTC, copper, mobile broadband",
+    "notes": "Ireland's largest telecom operator with nationwide fixed broadband coverage.",
+    "website": "https://www.eir.ie"
+  },
+  {
+    "name": "Vodafone Ireland",
+    "technology": "Open eir fibre, SIRO fibre, NBI fibre, 5G broadband",
+    "notes": "Major national broadband provider using multiple fibre networks.",
+    "website": "https://www.vodafone.ie"
+  },
+  {
+    "name": "Virgin Media Ireland",
+    "technology": "Cable broadband, fibre, DOCSIS",
+    "notes": "Major broadband provider with its own cable network and fibre offerings.",
+    "website": "https://www.virginmedia.ie"
+  },
+  {
+    "name": "Sky Ireland",
+    "technology": "Open eir fibre, SIRO fibre, NBI fibre",
+    "notes": "Broadband provider bundled with TV and entertainment services.",
+    "website": "https://www.sky.com/ie"
+  },
+  {
+    "name": "Three Ireland",
+    "technology": "4G and 5G fixed wireless broadband",
+    "notes": "Mobile operator offering home broadband via wireless networks.",
+    "website": "https://www.three.ie"
+  },
+  {
+    "name": "Digiweb",
+    "technology": "Fibre, SIRO, Open eir, NBI, wireless",
+    "notes": "Irish broadband provider serving residential and business customers.",
+    "website": "https://www.digiweb.ie"
+  },
+  {
+    "name": "Pure Telecom",
+    "technology": "Open eir fibre, SIRO, NBI",
+    "notes": "Irish broadband and communications provider.",
+    "website": "https://www.puretelecom.ie"
+  },
+  {
+    "name": "Imagine Broadband",
+    "technology": "Fixed wireless, fibre",
+    "notes": "Specialist rural broadband provider.",
+    "website": "https://www.imagine.ie"
+  },
+  {
+    "name": "Airwire",
+    "technology": "Fibre, fixed wireless",
+    "notes": "Regional broadband provider with strong rural coverage.",
+    "website": "https://www.airwire.ie"
+  },
+  {
+    "name": "Westnet",
+    "technology": "Fibre, fixed wireless",
+    "notes": "Regional broadband provider operating mainly in western Ireland.",
+    "website": "https://www.westnet.ie"
+  },
+  {
+    "name": "Net1",
+    "technology": "Fibre, fixed wireless",
+    "notes": "Irish regional broadband provider.",
+    "website": "https://www.net1.ie"
+  },
+  {
+    "name": "Fastcom",
+    "technology": "Wireless, fibre",
+    "notes": "Broadband provider serving homes and businesses.",
+    "website": "https://www.fastcom.ie"
+  },
+  {
+    "name": "Magnet+",
+    "technology": "Fibre, business broadband",
+    "notes": "Irish telecom provider offering broadband and business connectivity.",
+    "website": "https://www.magnetplus.ie"
+  },
+  {
+    "name": "Viatel",
+    "technology": "Fibre, business broadband",
+    "notes": "Irish telecommunications provider focused on business connectivity.",
+    "website": "https://www.viatel.com"
+  },
+  {
+    "name": "Blacknight",
+    "technology": "Fibre, broadband, business connectivity",
+    "notes": "Irish hosting and connectivity company offering broadband services.",
+    "website": "https://www.blacknight.com"
+  },
+  {
+    "name": "Airwave Internet",
+    "technology": "Fixed wireless, fibre",
+    "notes": "Irish broadband provider serving homes and businesses.",
+    "website": "https://www.airwave.ie"
+  },
+  {
+    "name": "Aptus Broadband",
+    "technology": "Wireless, fibre",
+    "notes": "Irish broadband provider offering residential connectivity.",
+    "website": "https://www.aptus.ie"
+  },
+  {
+    "name": "Arden Brisknet",
+    "technology": "Fixed wireless, fibre",
+    "notes": "Irish regional broadband provider.",
+    "website": "https://www.brisknet.ie"
+  },
+  {
+    "name": "BBnet",
+    "technology": "Fibre, wireless",
+    "notes": "Irish broadband provider.",
+    "website": "https://www.bbnet.ie"
+  },
+  {
+    "name": "Beacon Broadband",
+    "technology": "Fixed wireless, fibre",
+    "notes": "Regional broadband provider.",
+    "website": "https://www.beaconbroadband.ie"
+  },
+  {
+    "name": "Carnsore Broadband",
+    "technology": "Fixed wireless, fibre",
+    "notes": "Wexford-based broadband provider.",
+    "website": "https://www.carnsorebroadband.ie"
+  },
+  {
+    "name": "Kerry Broadband",
+    "technology": "Fibre, wireless",
+    "notes": "Regional broadband provider in Kerry and surrounding areas.",
+    "website": "https://www.kerrybroadband.ie"
+  },
+  {
+    "name": "MayoFibre",
+    "technology": "Fibre broadband",
+    "notes": "Regional fibre broadband provider.",
+    "website": "https://www.mayofibre.ie"
+  },
+  {
+    "name": "Cellnet",
+    "technology": "Fixed wireless, fibre",
+    "notes": "Irish broadband provider.",
+    "website": "https://www.cellnet.ie"
+  },
+  {
+    "name": "Rural Broadband",
+    "technology": "Fixed wireless, fibre",
+    "notes": "Rural broadband provider.",
+    "website": "https://www.ruralbroadband.ie"
+  },
+  {
+    "name": "Wireless Connect",
+    "technology": "Fixed wireless, NBI fibre",
+    "notes": "Irish rural broadband provider.",
+    "website": "https://www.wirelessconnect.ie"
+  },
+  {
+    "name": "Regional Broadband",
+    "technology": "Fibre, wireless",
+    "notes": "Regional broadband provider.",
+    "website": "https://www.regionalbroadband.ie"
+  },
+  {
+    "name": "IFA Telecom",
+    "technology": "NBI fibre, broadband",
+    "notes": "Irish broadband provider with NBI network access.",
+    "website": "https://www.ifatelecom.ie"
+  },
+  {
+    "name": "Roctel",
+    "technology": "Fibre, wireless",
+    "notes": "Irish broadband provider.",
+    "website": "https://www.roctel.ie"
+  },
+  {
+    "name": "Mynet",
+    "technology": "Wireless, fibre",
+    "notes": "Regional broadband provider.",
+    "website": "https://www.mynet.ie"
+  },
+  {
+    "name": "NuWave",
+    "technology": "Wireless broadband",
+    "notes": "Fixed wireless broadband provider.",
+    "website": "https://www.nuwave.ie"
+  },
+  {
+    "name": "Zintek",
+    "technology": "Wireless broadband",
+    "notes": "Regional connectivity provider.",
+    "website": "https://www.zintek.ie"
+  },
+  {
+    "name": "Tipp Broadband",
+    "technology": "Wireless broadband",
+    "notes": "Regional broadband provider in Tipperary.",
+    "website": "https://www.tippbroadband.ie"
+  },
+  {
+    "name": "Clare WiFi Networks",
+    "technology": "Fixed wireless",
+    "notes": "Regional rural broadband provider.",
+    "website": "https://www.clarewifi.ie"
+  },
+  {
+    "name": "Whizzy Internet",
+    "technology": "Wireless broadband",
+    "notes": "Irish broadband provider.",
+    "website": "https://www.whizzyinternet.ie"
+  },
+  {
+    "name": "Real Broadband",
+    "technology": "Fixed wireless",
+    "notes": "Irish broadband provider.",
+    "website": "https://www.realbroadband.ie"
+  },
+  {
+    "name": "HiSpeed",
+    "technology": "Fixed wireless",
+    "notes": "Regional broadband provider.",
+    "website": "https://www.hispeed.ie"
+  },
+  {
+    "name": "Lightnet",
+    "technology": "Fibre, wireless",
+    "notes": "Irish connectivity provider.",
+    "website": "https://www.lightnet.ie"
+  },
+  {
+    "name": "Budget Broadband",
+    "technology": "Wireless, fibre",
+    "notes": "Irish broadband provider.",
+    "website": "https://www.budgetbroadband.ie"
+  },
+  {
+    "name": "ClearWave",
+    "technology": "Wireless broadband",
+    "notes": "Regional broadband provider.",
+    "website": "https://www.clearwave.ie"
+  },
+  {
+    "name": "Elio Networks",
+    "technology": "Fibre, wireless",
+    "notes": "Irish connectivity provider.",
+    "website": "https://www.elionetworks.ie"
+  }
+]

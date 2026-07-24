@@ -24,19 +24,13 @@ type Envelope<T> =
 
 const BASE = "/api/v1";
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE}${path}`, {
-    ...init,
-    headers: { "content-type": "application/json", ...(init?.headers ?? {}) },
-  });
-
+async function parse<T>(res: Response): Promise<T> {
   let body: Envelope<T> | null = null;
   try {
     body = (await res.json()) as Envelope<T>;
   } catch {
     // fall through to the generic error below
   }
-
   if (!body) {
     throw new ApiClientError("NETWORK", `Request failed (${res.status}).`, res.status);
   }
@@ -46,6 +40,20 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return body.data;
 }
 
+async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(`${BASE}${path}`, {
+    ...init,
+    headers: { "content-type": "application/json", ...(init?.headers ?? {}) },
+  });
+  return parse<T>(res);
+}
+
+/** POST multipart form data — the browser sets the content-type + boundary. */
+async function requestForm<T>(path: string, form: FormData): Promise<T> {
+  const res = await fetch(`${BASE}${path}`, { method: "POST", body: form });
+  return parse<T>(res);
+}
+
 export const apiClient = {
   get: <T>(path: string) => request<T>(path),
   post: <T>(path: string, body?: unknown) =>
@@ -53,4 +61,5 @@ export const apiClient = {
   patch: <T>(path: string, body?: unknown) =>
     request<T>(path, { method: "PATCH", body: body === undefined ? undefined : JSON.stringify(body) }),
   del: <T>(path: string) => request<T>(path, { method: "DELETE" }),
+  postForm: <T>(path: string, form: FormData) => requestForm<T>(path, form),
 };

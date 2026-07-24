@@ -17,8 +17,11 @@ const schema = z.object({
   NEXT_PUBLIC_SUPABASE_URL: z.url(),
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().min(1),
   SUPABASE_SECRET_KEY: z.string().min(1),
+  SUPABASE_DB_URL: z.string().min(1), // pg-boss connection (session pooler)
   CLERK_SECRET_KEY: z.string().min(1),
   STRIPE_SECRET_KEY: z.string().min(1),
+  ANTHROPIC_API_KEY: z.string().min(1),
+  CLAUDE_MODEL_STRONG: z.string().min(1).default("claude-opus-4-8"),
   // Set after the provider webhooks are created (see webhook.md).
   STRIPE_WEBHOOK_SECRET: optionalSecret,
   CLERK_WEBHOOK_SIGNING_SECRET: optionalSecret,
@@ -32,7 +35,7 @@ export function serverEnv(): ServerEnv {
   if (cached) return cached;
   const parsed = schema.safeParse(process.env);
   if (!parsed.success) {
-    const fields = Object.keys(parsed.error.flatten().fieldErrors).join(", ");
+    const fields = Object.keys(z.flattenError(parsed.error).fieldErrors).join(", ");
     throw new Error(`Invalid or missing environment variables: ${fields}`);
   }
   cached = parsed.data;

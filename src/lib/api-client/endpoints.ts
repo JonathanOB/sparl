@@ -48,6 +48,32 @@ export const categoriesApi = {
   list: () => apiClient.get<Tables<"provider_categories">[]>("/categories"),
 };
 
+export const documentsApi = {
+  list: () => apiClient.get<Tables<"documents">[]>("/documents"),
+  upload: (file: File, documentType?: string) => {
+    const form = new FormData();
+    form.append("file", file);
+    if (documentType) form.append("document_type", documentType);
+    // No JSON content-type — the browser sets the multipart boundary.
+    return apiClient.postForm<{ id: string; status: string }>("/documents", form);
+  },
+};
+
+export const notificationsApi = {
+  list: () => apiClient.get<Tables<"notifications">[]>("/notifications"),
+  read: (id: string) => apiClient.post<Tables<"notifications">>(`/notifications/${id}/read`),
+  readAll: () => apiClient.post<{ updated: number }>("/notifications/read-all"),
+};
+
+export const recommendationsApi = {
+  list: () => apiClient.get<Tables<"recommendations">[]>("/recommendations"),
+  generate: () => apiClient.post<{ created: number }>("/recommendations/generate"),
+  accept: (id: string) =>
+    apiClient.post<Tables<"recommendations">>(`/recommendations/${id}/accept`),
+  reject: (id: string, input?: { reason?: string; note?: string }) =>
+    apiClient.post<Tables<"recommendations">>(`/recommendations/${id}/reject`, input),
+};
+
 export const servicesApi = {
   list: (filter?: { household_id?: string }) =>
     apiClient.get<Tables<"user_services">[]>(`/services${qs(filter)}`),

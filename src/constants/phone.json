@@ -1,0 +1,68 @@
+[
+  {
+    "name": "eir mobile",
+    "technology": "2G, 4G LTE, 5G",
+    "notes": "One of Ireland's three mobile network operators with its own radio network. Offers prepaid, bill pay, business mobile and bundles with broadband.",
+    "website": "https://www.eir.ie"
+  },
+  {
+    "name": "Vodafone Ireland",
+    "technology": "2G, 4G LTE, 5G",
+    "notes": "One of Ireland's three mobile network operators with its own network. Offers consumer and business mobile services.",
+    "website": "https://www.vodafone.ie"
+  },
+  {
+    "name": "Three Ireland",
+    "technology": "2G, 3G, 4G LTE, 5G",
+    "notes": "One of Ireland's three mobile network operators. Operates a nationwide mobile network.",
+    "website": "https://www.three.ie"
+  },
+  {
+    "name": "48",
+    "technology": "Three Ireland network, 4G, 5G",
+    "notes": "Youth-focused low-cost mobile brand owned by Three Ireland.",
+    "website": "https://www.48.ie"
+  },
+  {
+    "name": "GoMo",
+    "technology": "eir network, 4G, 5G",
+    "notes": "Digital-first low-cost mobile provider owned by eir.",
+    "website": "https://www.gomo.ie"
+  },
+  {
+    "name": "An Post Mobile",
+    "technology": "Vodafone network, 4G",
+    "notes": "Prepay-focused mobile virtual network operator operated through An Post.",
+    "website": "https://www.anpost.com/anpostmobile"
+  },
+  {
+    "name": "Clear Mobile",
+    "technology": "Vodafone network, 4G, 5G",
+    "notes": "Low-cost mobile provider using Vodafone's network.",
+    "website": "https://www.clearmobile.ie"
+  },
+  {
+    "name": "Lyca Mobile Ireland",
+    "technology": "eir network, 4G, 5G",
+    "notes": "International MVNO specialising in low-cost domestic and international calling.",
+    "website": "https://www.lycamobile.ie"
+  },
+  {
+    "name": "Sky Mobile Ireland",
+    "technology": "Vodafone network, 4G, 5G",
+    "notes": "Mobile provider from Sky Ireland offering SIM-only and handset plans.",
+    "website": "https://www.sky.com/ie"
+  },
+  {
+    "name": "Tesco Mobile Ireland",
+    "technology": "Three Ireland network, 4G, 5G",
+    "notes": "Mobile virtual network operator associated with Tesco Ireland.",
+    "website": "https://www.tescomobile.ie"
+  },
+  {
+    "name": "Virgin Mobile Ireland",
+    "technology": "Three Ireland network, 4G, 5G",
+    "notes": "Mobile brand operated by Virgin Media Ireland using Three's network.",
+    "website": "https://www.virginmedia.ie"
+  }
+]

@@ -4,7 +4,7 @@
  */
 import "server-only";
 import { z } from "zod";
-import { createUserClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/server";
 import { AppError, ErrorCode } from "@/lib/api/errors";
 import type { Tables } from "@/shared/types/database.types";
 
@@ -18,7 +18,7 @@ export const providerFilterSchema = z
 export type ProviderFilter = z.infer<typeof providerFilterSchema>;
 
 export async function listProviders(filter: ProviderFilter): Promise<Tables<"providers">[]> {
-  const supabase = await createUserClient();
+  const supabase = createPublicClient();
   let query = supabase
     .from("providers")
     .select("*")
@@ -33,7 +33,7 @@ export async function listProviders(filter: ProviderFilter): Promise<Tables<"pro
 }
 
 export async function getProvider(id: string): Promise<Tables<"providers">> {
-  const supabase = await createUserClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("providers")
     .select("*")
@@ -46,7 +46,7 @@ export async function getProvider(id: string): Promise<Tables<"providers">> {
 }
 
 export async function listCategories(): Promise<Tables<"provider_categories">[]> {
-  const supabase = await createUserClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("provider_categories")
     .select("*")
@@ -59,7 +59,7 @@ export async function listCategories(): Promise<Tables<"provider_categories">[]>
 export async function listProviderProducts(
   providerId: string
 ): Promise<Tables<"provider_products">[]> {
-  const supabase = await createUserClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("provider_products")
     .select("*")

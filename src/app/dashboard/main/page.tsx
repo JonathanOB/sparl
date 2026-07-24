@@ -46,7 +46,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <Button asChild>
-              <Link href="/household">Set up household</Link>
+              <Link href="/dashboard/household">Set up household</Link>
             </Button>
           </CardContent>
         </Card>
@@ -94,7 +94,7 @@ export default function DashboardPage() {
             No recommendations yet. Add a service or upload a bill to get started.
           </p>
           <Button asChild>
-            <Link href="/services">Add a service</Link>
+            <Link href="/dashboard/services">Add a service</Link>
           </Button>
         </CardContent>
       </Card>

@@ -3,8 +3,11 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   categoriesApi,
+  documentsApi,
   householdsApi,
+  notificationsApi,
   providersApi,
+  recommendationsApi,
   servicesApi,
   usersApi,
 } from "@/lib/api-client/endpoints";
@@ -30,10 +33,85 @@ export const queryKeys = {
     householdId ? (["services", householdId] as const) : (["services"] as const),
   service: (id: string) => ["services", id] as const,
   categories: ["categories"] as const,
+  documents: ["documents"] as const,
+  recommendations: ["recommendations"] as const,
+  notifications: ["notifications"] as const,
 };
+
+export function useNotifications() {
+  return useQuery({
+    queryKey: queryKeys.notifications,
+    queryFn: notificationsApi.list,
+    refetchInterval: 60_000,
+  });
+}
+
+export function useMarkNotificationRead() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => notificationsApi.read(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: queryKeys.notifications }),
+  });
+}
+
+export function useMarkAllNotificationsRead() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: () => notificationsApi.readAll(),
+    onSuccess: () => qc.invalidateQueries({ queryKey: queryKeys.notifications }),
+  });
+}
+
+export function useRecommendations() {
+  return useQuery({ queryKey: queryKeys.recommendations, queryFn: recommendationsApi.list });
+}
+
+export function useGenerateRecommendations() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: () => recommendationsApi.generate(),
+    onSuccess: () => qc.invalidateQueries({ queryKey: queryKeys.recommendations }),
+  });
+}
+
+export function useAcceptRecommendation() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => recommendationsApi.accept(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: queryKeys.recommendations }),
+  });
+}
+
+export function useRejectRecommendation() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, reason, note }: { id: string; reason?: string; note?: string }) =>
+      recommendationsApi.reject(id, { reason, note }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: queryKeys.recommendations }),
+  });
+}
 
 export function useCategories() {
   return useQuery({ queryKey: queryKeys.categories, queryFn: categoriesApi.list });
+}
+
+export function useDocuments() {
+  return useQuery({
+    queryKey: queryKeys.documents,
+    queryFn: documentsApi.list,
+    // poll while any document is still processing
+    refetchInterval: (query) =>
+      query.state.data?.some((d) => d.processing_status === "processing") ? 4000 : false,
+  });
+}
+
+export function useUploadDocument() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ file, documentType }: { file: File; documentType?: string }) =>
+      documentsApi.upload(file, documentType),
+    onSuccess: () => qc.invalidateQueries({ queryKey: queryKeys.documents }),
+  });
 }
 
 export function useMe() {
